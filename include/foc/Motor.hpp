@@ -18,28 +18,28 @@
 
 namespace foc {
 
-    class Motor : public MotorBase {
-    public:
-        ~Motor() override = default;
+class Motor : public MotorBase {
+public:
+  ~Motor() override = default;
 
-    public:
-        Error init() override;
+public:
+  Error init() override;
 
-    public:
-        void disable() override;
+public:
+  void disable() override;
 
-        void enable() override;
+  void enable() override;
 
-    public:
-        int initFOC() override;
+public:
+  int initFOC() override;
 
-        void loopFOC() override;
+  void loopFOC() override;
 
-    public:
-        void move(float target) override;
+public:
+  void move(float target) override;
 
-    public:
-        void setPhaseVoltage(float Uq, float Ud, float angle_el) override;
-    };
+public:
+  void setPhaseVoltage(float Uq, float Ud, float angle_el) override;
+};
 
-}
+} // namespace foc

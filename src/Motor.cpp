@@ -16,40 +16,22 @@
 
 namespace foc {
 
-    MotorBase::Error foc::Motor::init() {
-        return 0;
-    }
+MotorBase::Error foc::Motor::init() { return 0; }
 
-    void Motor::disable() {
+void Motor::disable() {}
 
-    }
+void Motor::enable() {}
 
-    void Motor::enable() {
+int Motor::initFOC() { return 0; }
 
-    }
+void Motor::loopFOC() {}
 
-    int Motor::initFOC() {
-        return 0;
-    }
+void Motor::move(float target) {}
 
-    void Motor::loopFOC() {
+void Motor::setPhaseVoltage(float Uq, float Ud, float angle_el) {}
 
-    }
+Motor::Error foc::Motor::initFOC() { return 0; }
 
-    void Motor::move(float target) {
+void Motor::move(foc::Motor::Target target) {}
 
-    }
-
-    void Motor::setPhaseVoltage(float Uq, float Ud, float angle_el) {
-
-    }
-
-    Motor::Error foc::Motor::initFOC() {
-        return 0;
-    }
-
-    void Motor::move(foc::Motor::Target target) {
-
-    }
-
-}
+} // namespace foc

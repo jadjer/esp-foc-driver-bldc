@@ -47,21 +47,13 @@ Timer::Error Timer::registerEventCallbacks(Timer::EventCallbacks const &cbs) {
   return mcpwm_timer_register_event_callbacks(m_handle, &callbacks, this);
 }
 
-Timer::Error Timer::enable() {
-  return mcpwm_timer_enable(m_handle);
-}
+Timer::Error Timer::enable() { return mcpwm_timer_enable(m_handle); }
 
-Timer::Error Timer::disable() {
-  return mcpwm_timer_disable(m_handle);
-}
+Timer::Error Timer::disable() { return mcpwm_timer_disable(m_handle); }
 
-Timer::Error Timer::startStop(Command command) {
-  return mcpwm_timer_start_stop(m_handle, command);
-}
+Timer::Error Timer::startStop(Command command) { return mcpwm_timer_start_stop(m_handle, command); }
 
-Timer::Handle Timer::getHandle() const {
-  return m_handle;
-}
+Timer::Handle Timer::getHandle() const { return m_handle; }
 
 bool Timer::executeCallback(Timer::Handle timer, Timer::EventData const *eventData, void *userContext) {
   auto *self = static_cast<Timer *>(userContext);
@@ -79,4 +71,4 @@ bool Timer::executeCallback(Timer::Handle timer, Timer::EventData const *eventDa
   return false;
 }
 
-}// namespace mcpwm
+} // namespace mcpwm

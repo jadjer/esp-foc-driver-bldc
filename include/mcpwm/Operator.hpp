@@ -51,4 +51,4 @@ private:
   std::shared_ptr<Timer> m_parentTimer;
 };
 
-}// namespace mcpwm
+} // namespace mcpwm

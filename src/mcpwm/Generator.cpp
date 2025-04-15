@@ -31,9 +31,7 @@ std::unique_ptr<Generator> Generator::create(std::shared_ptr<Operator> op, Pin c
   return std::unique_ptr<Generator>(new Generator(handle, std::move(op)));
 }
 
-Generator::Generator(Generator::Handle handle, std::shared_ptr<Operator> op) : m_handle(handle),
-                                                                               m_parentOperator(std::move(op)) {
-}
+Generator::Generator(Generator::Handle handle, std::shared_ptr<Operator> op) : m_handle(handle), m_parentOperator(std::move(op)) {}
 
 Generator::~Generator() {
   if (m_handle) {
@@ -41,23 +39,14 @@ Generator::~Generator() {
   }
 }
 
-Generator::Error Generator::setActionOnTimerEvent(Generator::TimerEventAction const action) {
-  return mcpwm_generator_set_action_on_timer_event(m_handle, action);
-}
+Generator::Error Generator::setActionOnTimerEvent(Generator::TimerEventAction const action) { return mcpwm_generator_set_action_on_timer_event(m_handle, action); }
 
-Generator::Error Generator::setActionOnCompareEvent(Generator::CompareEventAction const action) {
-  return mcpwm_generator_set_action_on_compare_event(m_handle, action);
-}
+Generator::Error Generator::setActionOnCompareEvent(Generator::CompareEventAction const action) { return mcpwm_generator_set_action_on_compare_event(m_handle, action); }
 
 Generator::Error Generator::setDeadTime(Generator const *partner, Generator::DeadTimeConfig const &config) {
-  return mcpwm_generator_set_dead_time(
-      m_handle,
-      partner ? partner->getHandle() : nullptr,
-      &config);
+  return mcpwm_generator_set_dead_time(m_handle, partner ? partner->getHandle() : nullptr, &config);
 }
 
-Generator::Handle Generator::getHandle() const {
-  return m_handle;
-}
+Generator::Handle Generator::getHandle() const { return m_handle; }
 
-}// namespace mcpwm
+} // namespace mcpwm

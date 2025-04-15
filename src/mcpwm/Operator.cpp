@@ -44,8 +44,6 @@ Operator::Error Operator::connectTimer(std::shared_ptr<Timer> timer) {
   return err;
 }
 
-Operator::Handle Operator::getHandle() const {
-  return m_handle;
-}
+Operator::Handle Operator::getHandle() const { return m_handle; }
 
-}// namespace mcpwm
+} // namespace mcpwm

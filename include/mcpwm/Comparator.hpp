@@ -52,4 +52,4 @@ private:
   std::shared_ptr<Operator> m_parentOperator;
 };
 
-}// namespace mcpwm
+} // namespace mcpwm

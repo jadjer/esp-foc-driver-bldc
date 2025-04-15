@@ -27,8 +27,7 @@ std::unique_ptr<Comparator> Comparator::create(std::shared_ptr<Operator> op, Com
   return std::unique_ptr<Comparator>(new Comparator(handle, std::move(op)));
 }
 
-Comparator::Comparator(Comparator::Handle handle, std::shared_ptr<Operator> op) : m_handle(handle),
-                                                                                  m_parentOperator(std::move(op)) {}
+Comparator::Comparator(Comparator::Handle handle, std::shared_ptr<Operator> op) : m_handle(handle), m_parentOperator(std::move(op)) {}
 
 Comparator::~Comparator() {
   if (m_handle) {
@@ -36,12 +35,8 @@ Comparator::~Comparator() {
   }
 }
 
-Comparator::Error Comparator::setCompareValue(Comparator::Value const compareValue) {
-  return mcpwm_comparator_set_compare_value(m_handle, compareValue);
-}
+Comparator::Error Comparator::setCompareValue(Comparator::Value const compareValue) { return mcpwm_comparator_set_compare_value(m_handle, compareValue); }
 
-Comparator::Handle Comparator::getHandle() const {
-  return m_handle;
-}
+Comparator::Handle Comparator::getHandle() const { return m_handle; }
 
-}// namespace mcpwm
+} // namespace mcpwm

@@ -32,9 +32,7 @@ Inverter::~Inverter() {
   }
 }
 
-Inverter::Error Inverter::registerCallbacks(Timer::EventCallbacks const &callbacks) {
-  return m_timer->registerEventCallbacks(callbacks);
-}
+Inverter::Error Inverter::registerCallbacks(Timer::EventCallbacks const &callbacks) { return m_timer->registerEventCallbacks(callbacks); }
 
 Inverter::Error Inverter::start(Timer::Command command) {
   if (command != MCPWM_TIMER_STOP_EMPTY and command != MCPWM_TIMER_STOP_FULL) {
@@ -98,11 +96,8 @@ bool Inverter::init(Inverter::Config const &config) {
   return true;
 }
 
-bool Inverter::configureGenerator(
-    std::shared_ptr<Generator> const &generatorHigh,
-    std::shared_ptr<Generator> const &generatorLow,
-    std::shared_ptr<Comparator> const &comparator,
-    Config const &config) {
+bool Inverter::configureGenerator(std::shared_ptr<Generator> const &generatorHigh, std::shared_ptr<Generator> const &generatorLow, std::shared_ptr<Comparator> const &comparator,
+                                  Config const &config) {
 
   ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generatorHigh->getHandle(),
                                                             MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
@@ -110,8 +105,8 @@ bool Inverter::configureGenerator(
                                                               MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator->getHandle(), MCPWM_GEN_ACTION_LOW)));
 
   // Настройка генератора нижнего ключа (комплементарный сигнал с dead-time)
-  ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generatorLow->getHandle(),
-                                                            MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_LOW)));
+  ESP_ERROR_CHECK(
+      mcpwm_generator_set_action_on_timer_event(generatorLow->getHandle(), MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_LOW)));
   ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(generatorLow->getHandle(),
                                                               MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator->getHandle(), MCPWM_GEN_ACTION_HIGH)));
 
@@ -121,4 +116,4 @@ bool Inverter::configureGenerator(
   return true;
 }
 
-}// namespace mcpwm
+} // namespace mcpwm

@@ -62,11 +62,8 @@ public:
 
 private:
   bool init(Config const &config);
-  bool configureGenerator(
-      std::shared_ptr<Generator> const &generatorHigh,
-      std::shared_ptr<Generator> const &generatorLow,
-      std::shared_ptr<Comparator> const &comparator,
-      Config const &config);
+  bool configureGenerator(std::shared_ptr<Generator> const &generatorHigh, std::shared_ptr<Generator> const &generatorLow, std::shared_ptr<Comparator> const &comparator,
+                          Config const &config);
 
 private:
   std::shared_ptr<Timer> m_timer;
@@ -75,4 +72,4 @@ private:
   std::array<std::array<std::shared_ptr<Generator>, 2>, 3> m_generators;
 };
 
-}// namespace mcpwm
+} // namespace mcpwm

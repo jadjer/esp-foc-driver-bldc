@@ -1,2 +1,6 @@
 dependencies:
   idf: ">=5.4.1"
+
+#  esp_foc:
+#    git: https://github.com/jadjer/esp-foc.git
+#    version: "*"

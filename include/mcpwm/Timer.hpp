@@ -69,4 +69,4 @@ private:
   EventCallbacks m_userCallbacks;
 };
 
-}// namespace mcpwm
+} // namespace mcpwm

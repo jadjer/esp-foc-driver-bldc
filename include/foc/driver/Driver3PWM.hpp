@@ -18,9 +18,8 @@
 
 namespace foc {
 
-    class Driver3PWM : public DriverBase {
-    public:
+class Driver3PWM : public DriverBase {
+public:
+};
 
-    };
-
-}
+} // namespace foc

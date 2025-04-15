@@ -14,6 +14,4 @@
 
 #include "foc/driver/Driver3PWM.hpp"
 
-namespace foc {
-
-}
+namespace foc {}
