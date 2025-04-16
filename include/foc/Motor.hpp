@@ -20,10 +20,11 @@ namespace foc {
 
 class Motor : public MotorBase {
 public:
+  Motor(PolePairs pp, OptionalResistance R, OptionalKVRating KV, OptionalInductance L);
   ~Motor() override = default;
 
 public:
-  Error init() override;
+  auto init() -> Error;
 
 public:
   void disable() override;
@@ -31,15 +32,12 @@ public:
   void enable() override;
 
 public:
-  int initFOC() override;
+  auto initFOC() -> int override;
 
   void loopFOC() override;
 
 public:
   void move(float target) override;
-
-public:
-  void setPhaseVoltage(float Uq, float Ud, float angle_el) override;
 };
 
 } // namespace foc

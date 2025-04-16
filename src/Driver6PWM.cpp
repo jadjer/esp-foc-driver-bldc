@@ -14,4 +14,16 @@
 
 #include "foc/driver/Driver6PWM.hpp"
 
-namespace foc {}
+#include "foc/driver/interface/Driver.hpp"
+
+namespace foc {
+
+Driver6PWM::Driver6PWM(Driver6PWM::Pin aH, Driver6PWM::Pin aL, Driver6PWM::Pin bH, Driver6PWM::Pin bL, Driver6PWM::Pin cH, Driver6PWM::Pin cL)
+    : m_phaseAHigh(aH), m_phaseALow(aL), m_phaseBHigh(bH), m_phaseBLow(bL), m_phaseCHigh(cH), m_phaseCLow(cL) {}
+void Driver6PWM::setPwm(float Ua, float Ub, float Uc) {}
+void Driver6PWM::setPhaseState(PhaseState sa, PhaseState sb, PhaseState sc) {}
+void Driver6PWM::init() {}
+void Driver6PWM::enable() {}
+void Driver6PWM::disable() {}
+
+} // namespace foc

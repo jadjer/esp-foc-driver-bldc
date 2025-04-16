@@ -16,22 +16,18 @@
 
 namespace foc {
 
-MotorBase::Error foc::Motor::init() { return 0; }
+Motor::Motor(Motor::PolePairs pp, Motor::OptionalResistance R, Motor::OptionalKVRating KV, Motor::OptionalInductance L) : MotorBase(pp, R, KV, L) {}
+
+auto Motor::init() -> MotorBase::Error { return 0; }
 
 void Motor::disable() {}
 
 void Motor::enable() {}
 
-int Motor::initFOC() { return 0; }
+auto Motor::initFOC() -> int { return 0; }
 
 void Motor::loopFOC() {}
 
 void Motor::move(float target) {}
-
-void Motor::setPhaseVoltage(float Uq, float Ud, float angle_el) {}
-
-Motor::Error foc::Motor::initFOC() { return 0; }
-
-void Motor::move(foc::Motor::Target target) {}
 
 } // namespace foc

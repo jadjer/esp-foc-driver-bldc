@@ -14,8 +14,38 @@
 
 #pragma once
 
+#include "foc/driver/interface/Driver.hpp"
+#include <cstdint>
+#include <foc/driver/DriverBase.hpp>
+
 namespace foc {
 
-class Driver6PWM {};
+class Driver6PWM : public DriverBase {
+public:
+  using Pin = std::uint8_t;
+
+public:
+  Driver6PWM(Pin aH, Pin aL, Pin bH, Pin bL, Pin cH, Pin cL);
+  ~Driver6PWM() override = default;
+
+public:
+  void init() override;
+
+public:
+  void enable() override;
+  void disable() override;
+
+public:
+  void setPwm(float Ua, float Ub, float Uc) override;
+  void setPhaseState(PhaseState sa, PhaseState sb, PhaseState sc) override;
+
+private:
+  Pin const m_phaseAHigh;
+  Pin const m_phaseALow;
+  Pin const m_phaseBHigh;
+  Pin const m_phaseBLow;
+  Pin const m_phaseCHigh;
+  Pin const m_phaseCLow;
+};
 
 } // namespace foc
