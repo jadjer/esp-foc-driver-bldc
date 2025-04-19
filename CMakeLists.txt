@@ -13,7 +13,7 @@ set(SOURCES
 )
 
 set(COMPONENTS
-        esp_foc
+        foc
         esp_driver_mcpwm
 )
 
